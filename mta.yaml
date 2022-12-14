@@ -12,6 +12,8 @@ build-parameters:
         - npx -p @sap/cds-dk cds build --production
         - npx rimraf gen/db/src/gen/data
 modules:
+  # modules will create application and
+  # requires section service instances will be binded to it
   - name: cpapp-srv
     type: nodejs
     path: gen/srv
@@ -36,6 +38,7 @@ modules:
       - name: cpapp-db
 
 resources:
+  # resource will create service instances visible in BTP cockpit
   - name: cpapp-db
     type: com.sap.xs.hdi-container
     parameters:
